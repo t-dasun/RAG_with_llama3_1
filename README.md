@@ -298,7 +298,7 @@ answer2 = clean_answer(rag_chain.invoke(question2))
 
 ---
 
-## Step 12 — Runtime notes & warnings you saw
+## Step 12 — Runtime notes & warnings
 
 * `Setting pad_token_id to eos_token_id:128001` — typically occurs because the tokenizer has no `pad_token` defined and HF sets it equal to the `eos_token` to avoid errors during generation.
 * Quantized and large-model loading messages — `device_map` and `bitsandbytes` will print placement and memory information.
@@ -327,36 +327,3 @@ answer2 = clean_answer(rag_chain.invoke(question2))
 * **Slow retrieval / embedding**: precompute and persist embeddings; use a faster model for embeddings in production.
 
 ---
-
-## Step 15 — Next steps & scaling
-
-* Add more documents (PDFs, web pages) and use loaders (e.g., `UnstructuredPDFLoader`, `S3Loader`).
-* Use hybrid search (sparse + dense) if exact keyword matching helps.
-* Deploy the chain behind a REST API (FastAPI + Uvicorn) for serving.
-* Add monitoring, logging, and automatic re-indexing when your data updates.
-
----
-
-## Minimal checklist to reproduce locally
-
-1. Create `my_knowledge.txt` with your content.
-2. Install required Python packages.
-3. Run the script step-by-step: load -> split -> embed -> faiss -> retriever -> LLM -> query.
-4. Inspect intermediate outputs: number of chunks, sample chunk texts, and nearest-neighbor scores.
-
----
-
-## Final tips (short)
-
-* Keep `temperature` low for deterministic answers in RAG.
-* Always return source metadata to help users verify answers.
-* Test with both in-context and out-of-context questions to ensure your "don’t know" behavior works.
-* Save indexes and model artifacts for reproducibility.
-
----
-
-If you want, I can:
-
-* export this to a downloadable `.md` file,
-* add a small diagram showing the data flow (retrieval → prompt → generation), or
-* convert this into a short README or notebook that runs end-to-end.
