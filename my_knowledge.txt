@@ -1,0 +1,5 @@
+The Aethelred Operating System, first released in 2023, is a lightweight, security-focused OS designed for embedded systems.
+Its core feature is the "Chrono-Lock" sandbox, which isolates every application in a time-sensitive, encrypted container. This prevents unauthorized data access and rollback attacks.
+Aethelred OS does not support traditional graphical user interfaces (GUIs); it is managed entirely through a command-line interface (CLI) called the "A-Shell".
+The primary programming language for Aethelred development is "Veridian," a memory-safe language similar to Rust, but with built-in primitives for asynchronous hardware communication.
+The latest version, Aethelred 3.1 "Dragon-Tooth," introduced support for multi-core processing, a feature that was absent in earlier versions.
